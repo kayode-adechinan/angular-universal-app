@@ -1,14 +1,21 @@
 <div class="jumbotron">
- 
-    <div class="text-center">
+  <div class="text-center">
     <a href="https://jsonworld.com"><h2>JSON WORLD</h2></a>
-    <a href="" target="_blank"><span>Server Side Pagination in Angular using ngx-pagination</span></a>
-    </div>
+    <a href="" target="_blank"
+      ><span>Server Side Pagination in Angular using ngx-pagination</span></a
+    >
+  </div>
+
+  <div *ngIf="loading; else elseBlock">
     <div class="list">
-    <ul>
-    <li *ngFor="let item of collection | paginate: config">{{ item }}</li>
-    </ul>
-    <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+      <ul>
+        <li *ngFor="let item of collection | paginate: config">{{ item }}</li>
+      </ul>
+      <pagination-controls
+        (pageChange)="pageChange($event)"
+        class="my-pagination"
+      ></pagination-controls>
     </div>
-    </div>
-     
+  </div>
+  <ng-template #elseBlock>is loading.....</ng-template>
+</div>
